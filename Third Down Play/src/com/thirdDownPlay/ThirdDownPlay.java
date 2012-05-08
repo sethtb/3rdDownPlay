@@ -18,7 +18,7 @@ public class ThirdDownPlay extends Activity {
         makeMeAvailable.setOnClickListener(new OnClickListener () {
         	public void onClick(View view) {
         		Intent myIntent = new Intent(view.getContext(), MakeMeAvailable.class);
-        		startActivityForResult(myIntent, 0);
+        		startActivity(myIntent);
         	}
         });
         

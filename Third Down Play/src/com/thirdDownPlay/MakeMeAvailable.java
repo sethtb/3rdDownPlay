@@ -120,7 +120,7 @@ public class MakeMeAvailable extends Activity {
     		
     		try{
     			HttpClient httpclient = new DefaultHttpClient();
-    			HttpPost httppost = new HttpPost("http://ibrahima.scripts.mit.edu/add813.php");
+    			HttpPost httppost = new HttpPost("http://ibrahima.scripts.mit.edu/scripts/add813.php");
     			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
     			HttpResponse response = httpclient.execute(httppost);
     			HttpEntity entity = response.getEntity();

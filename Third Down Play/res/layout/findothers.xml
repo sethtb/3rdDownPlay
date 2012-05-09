@@ -2,7 +2,9 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:orientation="vertical" 
+  android:orientation="vertical"
+  android:layout_marginLeft="5dp"
+  android:layout_marginRight="5dp" 
   android:layout_height="match_parent">
     <FrameLayout android:id="@+id/frameLayout1" 
     	android:layout_width="match_parent" 
@@ -10,22 +12,25 @@
         <TextView android:id="@+id/textView5" 
         	android:gravity="center_horizontal" 
         	android:layout_width="match_parent" 
-        	android:layout_height="wrap_content" 
-        	android:text="Find Others" 
+        	android:layout_height="wrap_content"
+        	android:layout_marginBottom="10dp" 
+        	android:text="Find People" 
         	android:textSize="30sp"></TextView>
     </FrameLayout>
     <LinearLayout android:id="@+id/linearLayout2" 
     	android:layout_width="match_parent" 
     	android:layout_height="wrap_content">
-        <TextView android:id="@+id/textView2"
-        	android:gravity="center_vertical" 
-        	android:layout_width="wrap_content" 
-        	android:layout_height="match_parent"  
-        	android:text="Class: "></TextView>
-        <MultiAutoCompleteTextView android:id="@+id/multiAutoCompleteTextView1"
-        	android:layout_width="wrap_content" 
-        	android:layout_height="wrap_content" 
-        	android:layout_weight="1"></MultiAutoCompleteTextView>
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/multiAutoCompleteTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/classHint" >
+
+            <requestFocus />
+
+        </MultiAutoCompleteTextView>
     </LinearLayout>
 
     <TextView
@@ -34,79 +39,14 @@
         android:layout_height="wrap_content"
         android:text="Others in my class:" />
 
-    <LinearLayout
+    <TableLayout
+        android:id="@+id/peopleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical" >
+        android:layout_height="fill_parent"
+        android:stretchColumns="1" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Al Capone" android:layout_weight="1"/>
+    </TableLayout>
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="32-141"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ben Bitdiddle" android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="34-304"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alyssa P. Hacker" android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="W20-308"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout android:id="@+id/linearLayout6" 
-    	android:layout_width="match_parent" 
-    	android:layout_height="wrap_content">
-        <Button android:id="@+id/findothers_cancel"
-        	android:layout_height="wrap_content"  
-        	android:layout_width="wrap_content" 
-        	android:layout_weight="1" 
-        	android:text="Cancel"></Button>
-    </LinearLayout>
+    
 </LinearLayout>

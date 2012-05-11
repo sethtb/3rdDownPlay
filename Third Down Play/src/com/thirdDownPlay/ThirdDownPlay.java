@@ -52,6 +52,9 @@ public class ThirdDownPlay extends Activity {
         editStatus.setOnClickListener(new OnClickListener () {
         	public void onClick(View view) {
         		Intent myIntent = new Intent(view.getContext(), EditStatus.class);
+        		SharedPreferences settings = getPreferences(0);
+        		Log.i("log_tag",settings.getString("player_name", null));
+        		myIntent.putExtra("player_name",settings.getString("player_name", null));
         		startActivityForResult(myIntent, 4);
         	}
         });
@@ -81,6 +84,27 @@ public class ThirdDownPlay extends Activity {
         	}
     		
         }
+        
+        //if the user is still online, resume
+        if (settings.contains("status")){
+        	Log.i("log_tag",settings.getString("status","fail"));
+        	if(settings.getString("status","fail").equals("online")){
+        		TextView status_bar = (TextView) findViewById(R.id.textView1);
+        		status_bar.setText(R.string.online);
+        		status_bar.setBackgroundColor(Color.GREEN);
+        		Button edit_status = (Button) findViewById(R.id.vieweditstatus);
+        		edit_status.setEnabled(true);
+        	}
+        	else{
+        		TextView status_bar = (TextView) findViewById(R.id.textView1);
+        		status_bar.setText(R.string.offline);
+        		status_bar.setBackgroundColor(Color.RED);
+        		Button edit_status = (Button) findViewById(R.id.vieweditstatus);
+        		edit_status.setEnabled(false);
+        	}
+        	
+        }
+        
     }
     
     @Override
@@ -94,9 +118,22 @@ public class ThirdDownPlay extends Activity {
     		editor.putString("status","online");
     		editor.putString("player_name",data.getStringExtra("player_name"));
     		editor.commit();
-    		
+    		Button edit_status = (Button) findViewById(R.id.vieweditstatus);
+    		edit_status.setEnabled(true);
+    	}
+    	else if (resultCode==Activity.RESULT_OK && requestCode==4){
+    		TextView status_bar = (TextView) findViewById(R.id.textView1);
+    		status_bar.setText(R.string.offline);
+    		status_bar.setBackgroundColor(Color.RED);
+    		SharedPreferences settings = getPreferences(0);
+    		SharedPreferences.Editor editor = settings.edit();
+    		editor.putString("status","offline");
+    		editor.commit();
+    		Button edit_status = (Button) findViewById(R.id.vieweditstatus);
+    		edit_status.setEnabled(false);
     	}
     }
+    
     
     @Override
     protected void onDestroy(){
@@ -105,7 +142,7 @@ public class ThirdDownPlay extends Activity {
 		if (settings.contains("status")){
 		   	String status = settings.getString("status", null);
 		   	// If online, remove person from database, set offline
-		   	if (status == "online"){
+		   	if (status.equals("online")){
 		   		SharedPreferences.Editor editor = settings.edit();
 	    		editor.putString("status","offline");
 	    		editor.commit();

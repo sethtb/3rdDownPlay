@@ -15,5 +15,6 @@
         </activity>
 		<activity android:name="MakeMeAvailable" android:theme="@android:style/Theme.Holo.Light"></activity>
 		<activity android:name="FindOthers"></activity>
+		<activity android:name="EditStatus"></activity>
     </application>
 </manifest>

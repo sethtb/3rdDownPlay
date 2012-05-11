@@ -13,6 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MakeMeAvailable extends Activity {
     /** Called when the activity is first created. */
@@ -29,41 +31,13 @@ public class MakeMeAvailable extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.makemeavailable);
         
-        /*Button cancel = (Button) findViewById(R.id.button1);
-        cancel.setOnClickListener(new OnClickListener() {
-        	public void onClick(View view) {
-	        	Intent intent = new Intent();
-	        	setResult(RESULT_OK, intent);
-	        	finish();
-        	}
-        });*/
+        SharedPreferences settings = getPreferences(0);
+		if (settings.contains("player_name")){
+			final EditText nameField = (EditText) findViewById(R.id.editText1);
+        	nameField.setText(settings.getString("player_name", null));
+		}
         
-        /*Button submit = (Button) findViewById(R.id.button2);
-        submit.setOnClickListener(new OnClickListener() {
-        	public void onClick(View view) {
-        		final EditText nameField = (EditText) findViewById(R.id.editText1);
-            	String name = nameField.getText().toString();
-
-            	final EditText classField = (EditText) findViewById(R.id.autoCompleteTextView1);
-            	String classNo = classField.getText().toString();
-
-            	final EditText psetInfoField = (EditText) findViewById(R.id.editText3);
-            	String psetInfo = psetInfoField.getText().toString();
-            	
-            	final Spinner groupSizeField = (Spinner) findViewById(R.id.spinner1);
-            	String groupSize = groupSizeField.getSelectedItem().toString();
-            	
-            	nameField.setTextColor(Color.RED);
-            	
-            	if (name != "" && classNo != ""){
-            		Intent intent = new Intent(view.getContext(),ThirdDownPlay.class);
-            		startActivity(intent);
-            		//setResult(RESULT_OK,intent);
-            		//finish();
-            		
-            	}
-        	}
-        });*/
+        
     }
     
     public void sendMyInfo(View button){
@@ -127,9 +101,22 @@ public class MakeMeAvailable extends Activity {
     		}
     		catch(Exception e){
     			Log.e("log_tag","Error in http connection "+e.toString());
+    			Toast.makeText(this, "Could not connect to Database", Toast.LENGTH_LONG);
+    			Intent intent = new Intent();
+    			setResult(RESULT_CANCELED,intent);
+    			finish();
     		}
     		
+    		SharedPreferences settings = getPreferences(0);
+    		if (!settings.contains("player_name")){
+    			SharedPreferences.Editor editor = settings.edit();
+        		editor.putString("player_name",name);
+        		editor.commit();
+    		}
+    		
+    		Toast.makeText(this, "Your are now available", Toast.LENGTH_LONG).show();  
     		Intent intent = new Intent();
+    		intent.putExtra("player_name", name);
     		setResult(RESULT_OK,intent);
     		finish();
     	}

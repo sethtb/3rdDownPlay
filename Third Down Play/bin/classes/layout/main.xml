@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/status_color"
+        android:gravity="center"
+        android:text="@string/offline"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fffafa" />
 
     <TextView
         android:id="@+id/TextView03"

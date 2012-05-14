@@ -129,6 +129,15 @@ public class FindOthers extends Activity {
 		            	}
 		            }
 		        });
+		        
+		        final Button resetBut = (Button) findViewById(R.id.restart_button);
+		        resetBut.setOnClickListener(new View.OnClickListener() {
+		            public void onClick(View v) {
+		            	Intent intent = getIntent();
+		            	finish();
+		            	startActivity(intent);
+		            }
+		        });
 			}
 			catch(JSONException e){
 				Log.e("log_tag", "Error converting result "+e.toString());

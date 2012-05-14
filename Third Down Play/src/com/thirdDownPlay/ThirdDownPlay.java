@@ -44,6 +44,9 @@ public class ThirdDownPlay extends Activity {
         findOthers.setOnClickListener(new OnClickListener () {
         	public void onClick(View view) {
         		Intent myIntent = new Intent(view.getContext(), FindOthers.class);
+        		SharedPreferences settings = getPreferences(0);
+        		//Log.i("log_tag",settings.getString("player_name", null));
+        		myIntent.putExtra("player_name",settings.getString("player_name", null));
         		startActivityForResult(myIntent, 0);
         	}
         });

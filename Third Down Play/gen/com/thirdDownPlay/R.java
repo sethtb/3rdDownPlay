@@ -20,37 +20,51 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int TextView03=0x7f07000c;
-        public static final int autoCompleteTextView1=0x7f070011;
+        public static final int Contact=0x7f07001b;
+        public static final int TextView03=0x7f07000d;
+        public static final int autoCompleteTextView1=0x7f070013;
         public static final int button1=0x7f070002;
         public static final int button2=0x7f070006;
         public static final int editText1=0x7f070001;
-        public static final int editText3=0x7f070013;
-        public static final int editText4=0x7f070017;
-        public static final int findpeople=0x7f07000e;
+        public static final int editText3=0x7f070015;
+        public static final int editText4=0x7f070019;
+        public static final int findpeople=0x7f07000f;
         public static final int frameLayout1=0x7f070007;
-        public static final int linearLayout1=0x7f070010;
-        public static final int linearLayout2=0x7f070009;
-        public static final int linearLayout3=0x7f070012;
-        public static final int linearLayout4=0x7f070014;
-        public static final int linearLayout5=0x7f070016;
-        public static final int linearLayout6=0x7f070018;
-        public static final int makemeavailable=0x7f07000d;
-        public static final int multiAutoCompleteTextView1=0x7f07000a;
-        public static final int peopleView=0x7f07000b;
+        public static final int fromPerson=0x7f070022;
+        public static final int linearLayout1=0x7f070011;
+        public static final int linearLayout2=0x7f070012;
+        public static final int linearLayout3=0x7f070014;
+        public static final int linearLayout4=0x7f070016;
+        public static final int linearLayout5=0x7f070018;
+        public static final int linearLayout6=0x7f07001a;
+        public static final int makemeavailable=0x7f07000e;
+        public static final int messageBox=0x7f070025;
+        public static final int peopleView=0x7f07000c;
         public static final int postView=0x7f070005;
+        public static final int restart_button=0x7f07000b;
         public static final int scrollView1=0x7f070004;
-        public static final int spinner1=0x7f070015;
+        public static final int search_box=0x7f070009;
+        public static final int search_button=0x7f07000a;
+        public static final int spinner1=0x7f070017;
+        public static final int tableRow1=0x7f07001c;
+        public static final int tableRow2=0x7f07001f;
+        public static final int tableRow3=0x7f070023;
+        public static final int tableRow4=0x7f070024;
+        public static final int tableRow5=0x7f07001d;
+        public static final int tableRow6=0x7f070020;
         public static final int textView1=0x7f070000;
         public static final int textView2=0x7f070003;
+        public static final int textView3=0x7f070021;
         public static final int textView5=0x7f070008;
-        public static final int vieweditstatus=0x7f07000f;
+        public static final int toPerson=0x7f07001e;
+        public static final int vieweditstatus=0x7f070010;
     }
     public static final class layout {
         public static final int edit_status=0x7f030000;
         public static final int findothers=0x7f030001;
         public static final int main=0x7f030002;
         public static final int makemeavailable=0x7f030003;
+        public static final int sendmessage=0x7f030004;
     }
     public static final class string {
         public static final int PSHint=0x7f040004;
@@ -62,6 +76,8 @@ public final class R {
         public static final int nameHint=0x7f040002;
         public static final int offline=0x7f040007;
         public static final int online=0x7f040008;
+        public static final int restart_string=0x7f04000b;
+        public static final int search_string=0x7f04000a;
         public static final int update_location=0x7f040009;
     }
 }

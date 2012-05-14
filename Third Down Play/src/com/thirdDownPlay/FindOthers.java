@@ -29,9 +29,12 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FindOthers extends Activity {
     /** Called when the activity is first created. */
+	
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,12 +88,16 @@ public class FindOthers extends Activity {
 					
 					Button con = new Button(this);
 					con.setText(" Contact ");
-					con.setId(7);
+					con.setTag(json_data.getString("Name"));
 					con.setPadding(3,3,3,3);
 					
 			        con.setOnClickListener(new View.OnClickListener() {
 			            public void onClick(View v) {
 			                // TODO: set functionality of contact button here
+			            	Intent intent = new Intent(v.getContext(), SendMessage.class);
+			        		intent.putExtra("player_name", getIntent().getStringExtra("player_name"));
+			        		intent.putExtra("other_name", (String) v.getTag());
+			        		startActivity(intent);
 			            }
 			        });
 					

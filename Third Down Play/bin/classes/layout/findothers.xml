@@ -18,21 +18,33 @@
         	android:textAppearance="?android:attr/textAppearanceLarge"
         	android:textSize="40sp"></TextView>
     </FrameLayout>
-    <LinearLayout android:id="@+id/linearLayout2" 
-    	android:layout_width="match_parent" 
+    
+    <RelativeLayout android:layout_width="fill_parent"
     	android:layout_height="wrap_content">
+	    <EditText
+	        android:id="@+id/search_box"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/classHint"/>
 
-        <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/classHint" >
+	    <Button
+	        android:id="@+id/search_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@id/search_box"
+	        android:layout_below="@id/search_box"
+	        android:layout_marginLeft="10dip"
+	        android:text="@string/search_string" />
+
+	     <Button
+	         android:id="@+id/restart_button"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_below="@id/search_box"
+	         android:layout_toRightOf="@id/search_button"
+	         android:text="@string/restart_string" />
 
-            <requestFocus />
-
-        </MultiAutoCompleteTextView>
-    </LinearLayout>
+	</RelativeLayout>
 
     <TextView
         android:id="@+id/textView1"

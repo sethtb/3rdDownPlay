@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+ 	 android:layout_marginRight="5dp"  >
+
+    <TextView
+        android:id="@+id/Contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Contact"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3sp"
+                    android:text="To:"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/toPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3sp"
+                android:text="Person"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3sp"
+                    android:text="From:"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/fromPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3sp"
+                android:text="Other Person"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TableRow>
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/messageBox"
+        android:layout_width="match_parent"
+        android:layout_height="311dp"
+        android:layout_gravity="top"
+        android:ems="10"
+        android:gravity="fill"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="Submit" 
+        android:onClick="submit"/>
+
+</LinearLayout>

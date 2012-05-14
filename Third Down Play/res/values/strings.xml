@@ -17,4 +17,5 @@
     <string name="online">Available</string>
     <color name="status_color">#ff0000</color>
     <string name="update_location">Update Location</string>
+    <string name="search_string">Search</string>
 </resources>

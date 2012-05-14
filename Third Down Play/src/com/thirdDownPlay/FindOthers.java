@@ -17,13 +17,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -59,7 +62,7 @@ public class FindOthers extends Activity {
 	        }
 			try{
 				JSONArray jArray = new JSONArray(result);
-				LinearLayout pView = (LinearLayout) findViewById(R.id.peopleView);
+				TableLayout pView = (TableLayout) findViewById(R.id.peopleView);
 				for (int i=0;i<jArray.length();i++){
 					JSONObject json_data = jArray.getJSONObject(i);
 					//Log.i("log_tag","name: "+json_data.getString("Name"));
@@ -80,12 +83,52 @@ public class FindOthers extends Activity {
 					loc.setId(7);
 					loc.setPadding(3,3,3,3);
 					
+					Button con = new Button(this);
+					con.setText(" Contact ");
+					con.setId(7);
+					con.setPadding(3,3,3,3);
+					
+			        con.setOnClickListener(new View.OnClickListener() {
+			            public void onClick(View v) {
+			                // TODO: set functionality of contact button here
+			            }
+			        });
+					
 					row.addView(name);
 					row.addView(classNo);
 					row.addView(loc);
+					row.addView(con);
 					pView.addView(row);
-					
 				}
+				
+				final Button searchBut = (Button) findViewById(R.id.search_button);
+		        searchBut.setOnClickListener(new View.OnClickListener() {
+		            public void onClick(View v) {
+		                // Perform action on click
+		            	TableLayout pView = (TableLayout) findViewById(R.id.peopleView);
+		            	EditText searchBox = (EditText) findViewById(R.id.search_box);
+		            	String txt = searchBox.getText().toString();
+		            	ArrayList<TableRow> removal = new ArrayList<TableRow>();
+		            	int cCount = pView.getChildCount();
+		            	//String result = "";
+		            	for (int i = 0; i < cCount; i++) {
+		            		TableRow row = (TableRow) pView.getChildAt(i);
+		            		TextView cN = (TextView)row.getChildAt(1);
+		            		String testNum = cN.getText().toString();
+		            		//result += txt + ", " + testNum + "; ";
+		            		if ( !txt.equals(testNum)) {
+		            			
+		            			removal.add(row);
+		            			//result += i + " ";
+		            		}
+		            	}
+		            	//searchBox.setText(result);
+		            	for (int i = 0; i < removal.size(); i++) {
+		            		TableRow row = removal.get(i);
+		            		pView.removeView(row);
+		            	}
+		            }
+		        });
 			}
 			catch(JSONException e){
 				Log.e("log_tag", "Error converting result "+e.toString());
@@ -104,5 +147,6 @@ public class FindOthers extends Activity {
 	        	finish();
         	}
         });*/
+        
     }
 }

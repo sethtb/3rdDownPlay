@@ -51,7 +51,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Others in my class:" />
-
+	<ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.50" >
     <TableLayout
         android:id="@+id/peopleView"
         android:layout_width="match_parent"
@@ -60,6 +64,7 @@
 
 
     </TableLayout>
+    </ScrollView>
 
     
 </LinearLayout>
